@@ -5,6 +5,7 @@ import Home from "./containers/Home/Home";
 import About from "./containers/About/About";
 import BetrayalCards from "./containers/BetrayalCards/BetrayalCards";
 import DeathCounter from "./containers/DeathCounter/DeathCounter";
+import HeroCantare from "./containers/HeroCantare/HeroCantare";
 
 class App extends Component {
     render() {
@@ -13,14 +14,16 @@ class App extends Component {
                 <Layout>
                     <Switch>
                         <Route path="/About" component={About} />
+                        <Route path="/DeathCounter" component={DeathCounter} />
                         <Route
                             path="/Projects/DeathCounter"
                             component={DeathCounter}
                         />
                         <Route
-                            path="/Projects/BetrayalTracker"
+                            path="/BetrayalTracker"
                             component={BetrayalCards}
                         />
+                        <Route path="/HeroCantare" component={HeroCantare} />
                         <Route path="/" exact component={Home} />
                     </Switch>
                 </Layout>

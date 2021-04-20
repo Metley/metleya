@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { NavLink } from "react-router-dom";
 
 import {
     Navbar,
@@ -19,11 +20,15 @@ const navigationbar = (props) => (
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/About">About</Nav.Link>
                 <NavDropdown title="Projects" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/Projects/DeathCounter">
+                    <NavDropdown.Item href="/DeathCounter">
                         Death Counter
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/Projects/BetrayalTracker">
+                    <NavLink to="/Projects/DeathCounter">Death Counter</NavLink>
+                    <NavDropdown.Item href="/BetrayalTracker">
                         Betrayal Tracker
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/HeroCantare">
+                        Hero Cantare Summon Simulator
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/">Coming Soon</NavDropdown.Item>
                 </NavDropdown>
