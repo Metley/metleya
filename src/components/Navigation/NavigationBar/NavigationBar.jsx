@@ -23,24 +23,26 @@ const navigationbar = (props) => (
                     <NavDropdown.Item href="/DeathCounter">
                         Death Counter
                     </NavDropdown.Item>
-                    <NavLink to="/Projects/DeathCounter">Death Counter</NavLink>
                     <NavDropdown.Item href="/BetrayalTracker">
                         Betrayal Tracker
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/HeroCantare">
                         Hero Cantare Summon Simulator
                     </NavDropdown.Item>
+                    <NavDropdown.Item href="/AppointmentScheduler">
+                        Appointment Scheduler
+                    </NavDropdown.Item>
                     <NavDropdown.Item href="/">Coming Soon</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
-            <Form inline>
+            {/* <Form inline>
                 <FormControl
                     type="text"
                     placeholder="Search"
                     className="mr-sm-2"
                 />
                 <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
         </Navbar.Collapse>
     </Navbar>
 );

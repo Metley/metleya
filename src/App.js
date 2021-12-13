@@ -6,6 +6,7 @@ import About from "./containers/About/About";
 import BetrayalCards from "./containers/BetrayalCards/BetrayalCards";
 import DeathCounter from "./containers/DeathCounter/DeathCounter";
 import HeroCantare from "./containers/HeroCantare/HeroCantare";
+import AppointmentScheduler from "./containers/AppointmentScheduler/AppointmentScheduler";
 
 class App extends Component {
     render() {
@@ -24,6 +25,10 @@ class App extends Component {
                             component={BetrayalCards}
                         />
                         <Route path="/HeroCantare" component={HeroCantare} />
+                        <Route
+                            path="/AppointmentScheduler"
+                            component={AppointmentScheduler}
+                        />
                         <Route path="/" exact component={Home} />
                     </Switch>
                 </Layout>

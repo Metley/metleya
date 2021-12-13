@@ -1,40 +1,15 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import classes from "./SummonList.css";
 import SummonList from "../SummonList/SummonList";
-import { Grid } from "@material-ui/core";
+import LinearProgressWithLabel from "../../UI/LinearProgressWithLabel/LinearProgressWithLabel";
+import { Grid, Button } from "@material-ui/core";
 
 class BannerBox extends Component {
     state = {};
 
     render() {
-        const summonList = Object.keys(this.props.summonList).map((pKey) => {
-            return (
-                <SummonListItems
-                    key={pKey}
-                    type={this.props.summonList[pKey].type}
-                    heros={this.props.summonList[pKey].title}
-                    cube={this.props.summonList[pKey].cube}
-                    selected={this.props.summonListSelected.title}
-                    onSelect={() => this.props.onSelect(pKey)}
-                />
-            );
-        });
-
         return (
-            <Grid
-                container
-                item
-                xs={10}
-                align=""
-                wrap="wrap"
-                style={{
-                    backgroundImage: `url(${background})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            >
+            <Grid container align="" wrap="wrap">
                 <Grid
                     item
                     xs={3}
@@ -46,12 +21,61 @@ class BannerBox extends Component {
                     }}
                 >
                     <SummonList
-                        summonList={this.state.summonList}
-                        summonListSelected={this.state.summonListSelected}
-                        onSelect={this.onSelectHandler}
+                        summonList={this.props.summonList}
+                        summonListSelected={this.props.summonListSelected}
+                        onSelect={this.props.onSelect}
                     />
                 </Grid>
-                <Grid item xs={9} align="center"></Grid>
+                <Grid
+                    container
+                    item
+                    xs={9}
+                    align="center"
+                    style={{
+                        backgroundImage: `url(${this.props.summonListSelected.banner.default})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
+                >
+                    <Grid item xs={12} align="center" style={{ marginTop: 10 }}>
+                        <LinearProgressWithLabel
+                            style={{
+                                marginLeft: 20,
+                                marginRight: 20,
+                            }}
+                            value={this.props.summonListSelected.pity}
+                        />
+                    </Grid>
+                    <Grid item xs={12} align="center">
+                        {/* <img
+                            src={this.props.summonListSelected.banner.default}
+                            style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                            }}
+                        /> */}
+                    </Grid>
+                    <Grid
+                        container
+                        align="center"
+                        direction="row"
+                        justify="center"
+                        alignItems="flex-end"
+                    >
+                        <Button
+                            onClick={this.props.onSummonHandler}
+                            style={{
+                                backgroundColor: "rgba(0, 0, 0, 0.4)",
+                                color: "white",
+                                margin: "5px",
+                                textShadow: "0 0 3px #FF0000, 0 0 5px #0000FF",
+                            }}
+                        >
+                            Summon
+                        </Button>
+                    </Grid>
+                </Grid>
             </Grid>
         );
     }

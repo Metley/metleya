@@ -16,21 +16,12 @@ const summonListItems = (props) => (
         selected={props.selected === props.heros}
         onClick={props.onSelect}
         style={{
-            backgroundImage: `url(${background})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
 
             marginTop: "5px",
         }}
     >
-        <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            style={{ marginTop: "5px" }}
-        >
+        <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={3}>
                 <ListItemAvatar>
                     <Avatar src={props.cube.default} />

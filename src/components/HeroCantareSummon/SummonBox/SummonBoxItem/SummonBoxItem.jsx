@@ -33,7 +33,16 @@ const summonBoxItems = (props) => (
                 }}
             />
         </div>
-        <p>{props.tier}</p>
+        {/* <p
+            style={{
+                backgroundColor: "rgba(0, 0, 0, 0.4)",
+                color: "white",
+                margin: "5px",
+                textShadow: "0 0 3px #FF0000, 0 0 5px #0000FF",
+            }}
+        >
+            {props.heroName}
+        </p> */}
         {/* <img
             src={props.imgSource.default}
             alt={props.heroName}

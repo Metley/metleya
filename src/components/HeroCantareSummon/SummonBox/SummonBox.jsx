@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Auxi from "../../../hoc/Auxi";
 import SummonBoxItem from "./SummonBoxItem/SummonBoxItem";
+import PityBar from "../PityBar/PityBar";
 import { Grid, Button } from "@material-ui/core";
 import background from "../../../assets/images/HeroCantare/Background/Back_Banner.png";
 
@@ -114,20 +115,20 @@ class SummonBox extends Component {
     };
 
     render() {
-        const heroSummonedRow1 = Object.keys(this.state.heroSummonedRow1).map(
+        const heroSummonedRow1 = Object.keys(this.props.heroSummonedRow1).map(
             (pKey) => {
                 return (
                     <Grid item xs={2} key={pKey} style={{ marginTop: "10px" }}>
                         <SummonBoxItem
                             key={pKey}
-                            imgSource={this.state.heroSummonedRow1[pKey].source}
+                            imgSource={this.props.heroSummonedRow1[pKey].source}
                             heroName={
-                                this.state.heroSummonedRow1[pKey].heroName
+                                this.props.heroSummonedRow1[pKey].heroName
                             }
-                            tier={this.state.heroSummonedRow1[pKey].tier}
+                            tier={this.props.heroSummonedRow1[pKey].tier}
                             background={
                                 this.tierBackgroundHandler(
-                                    this.state.heroSummonedRow1[pKey].tier
+                                    this.props.heroSummonedRow1[pKey].tier
                                 ).default
                             }
                         />
@@ -135,20 +136,20 @@ class SummonBox extends Component {
                 );
             }
         );
-        const heroSummonedRow2 = Object.keys(this.state.heroSummonedRow2).map(
+        const heroSummonedRow2 = Object.keys(this.props.heroSummonedRow2).map(
             (pKey) => {
                 return (
                     <Grid item xs={2} key={pKey}>
                         <SummonBoxItem
                             key={pKey}
-                            imgSource={this.state.heroSummonedRow2[pKey].source}
+                            imgSource={this.props.heroSummonedRow2[pKey].source}
                             heroName={
-                                this.state.heroSummonedRow2[pKey].heroName
+                                this.props.heroSummonedRow2[pKey].heroName
                             }
-                            tier={this.state.heroSummonedRow2[pKey].tier}
+                            tier={this.props.heroSummonedRow2[pKey].tier}
                             background={
                                 this.tierBackgroundHandler(
-                                    this.state.heroSummonedRow2[pKey].tier
+                                    this.props.heroSummonedRow2[pKey].tier
                                 ).default
                             }
                         />
@@ -157,16 +158,46 @@ class SummonBox extends Component {
             }
         );
 
-        let output = this.props.selected.selected ? (
-            <Grid container direction="row">
-                <img
-                    src={this.props.selected.banner.default}
-                    style={{
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                    }}
-                />
-            </Grid>
+        const heroSummonedRow1Names = Object.keys(
+            this.props.heroSummonedRow1
+        ).map((pKey) => {
+            return (
+                <Grid item xs={2} key={pKey}>
+                    <p
+                        style={{
+                            backgroundColor: "rgba(0, 0, 0, 0.4)",
+                            color: "white",
+                            margin: "5px",
+                            textShadow: "0 0 3px #FF0000, 0 0 5px #0000FF",
+                        }}
+                    >
+                        {this.props.heroSummonedRow1[pKey].heroName}
+                    </p>
+                </Grid>
+            );
+        });
+
+        const heroSummonedRow2Names = Object.keys(
+            this.props.heroSummonedRow2
+        ).map((pKey) => {
+            return (
+                <Grid item xs={2} key={pKey}>
+                    <p
+                        style={{
+                            backgroundColor: "rgba(0, 0, 0, 0.4)",
+                            color: "white",
+                            margin: "5px",
+                            textShadow: "0 0 3px #FF0000, 0 0 5px #0000FF",
+                        }}
+                    >
+                        {this.props.heroSummonedRow2[pKey].heroName}
+                    </p>
+                </Grid>
+            );
+        });
+
+        let output = this.props.showBanner ? (
+            <Grid container direction="row"></Grid>
         ) : (
             <div>
                 <Grid
@@ -183,15 +214,64 @@ class SummonBox extends Component {
                     justify="space-evenly"
                     alignItems="center"
                 >
+                    {heroSummonedRow1Names}
+                </Grid>
+                <Grid
+                    container
+                    direction="row"
+                    justify="space-evenly"
+                    alignItems="center"
+                >
                     {heroSummonedRow2}
+                </Grid>
+                <Grid
+                    container
+                    direction="row"
+                    justify="space-evenly"
+                    alignItems="center"
+                >
+                    {heroSummonedRow2Names}
                 </Grid>
             </div>
         );
 
         return (
             <Auxi>
+                <Grid container align="center">
+                    <Grid item xs={12} align="center" style={{ marginTop: 10 }}>
+                        <PityBar
+                            value={this.props.selected.pity}
+                            style={{
+                                marginLeft: 20,
+                                marginRight: 20,
+                            }}
+                        />
+                    </Grid>
+                </Grid>
+
                 {output}
-                <Button onClick={this.onSummonHandler}>Summon</Button>
+                <Button
+                    onClick={this.props.onReturnHandler}
+                    style={{
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                        color: "white",
+                        margin: "5px",
+                        textShadow: "0 0 3px #FF0000, 0 0 5px #0000FF",
+                    }}
+                >
+                    Return
+                </Button>
+                <Button
+                    onClick={this.props.onSummonHandler}
+                    style={{
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                        color: "white",
+                        margin: "5px",
+                        textShadow: "0 0 3px #FF0000, 0 0 5px #0000FF",
+                    }}
+                >
+                    Summon
+                </Button>
             </Auxi>
         );
     }

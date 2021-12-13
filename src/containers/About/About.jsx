@@ -30,13 +30,16 @@ class About extends Component {
                         <Col md={5}>
                             <p class="text-justify">
                                 Welcome to my website, this was created to help
-                                myself learn and experiment with using React
+                                myself learn and experiment with using Reactjs
                                 while creating a portfolio to store my projects
-                                and have them on display. Currently living in
-                                Toronto, ON, Canada and hoping to find a place
-                                to work either nearby or remotely to build upon
-                                my current skills and learn from more
-                                experienced individuals.
+                                and have them on display. I have currently been
+                                focused on creating different projects but will
+                                soon focus on making the site overall more
+                                appealing. Currently living in Toronto, ON,
+                                Canada and hoping to find a place to work either
+                                nearby or remotely to build upon my current
+                                skills and learn from more experienced
+                                individuals.
                             </p>
                         </Col>
                         <Col md={1} />

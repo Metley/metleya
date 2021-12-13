@@ -3,8 +3,9 @@ import Auxi from "../../hoc/Auxi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SummonList from "./SummonList/SummonList";
 import SummonBox from "./SummonBox/SummonBox";
+import BannerBox from "./BannerBox/BannerBox";
 import HeroBox from "./HeroBox/HeroBox";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import backgroundGacha from "../../assets/images/HeroCantare/Background/Back_Gacha.png";
 import backgroundBanner from "../../assets/images/HeroCantare/Background/Back_Banner.png";
 
@@ -130,6 +131,11 @@ class HeroCantareSummon extends Component {
                 heroName: "Dark",
                 tier: "S",
                 source: require("../../assets/images/HeroCantare/HeroIcons/Dark.png"),
+            },
+            {
+                heroName: "Dowon",
+                tier: "SS",
+                source: require("../../assets/images/HeroCantare/HeroIcons/Dowon.png"),
             },
             {
                 heroName: "Ehwa Yeon",
@@ -297,6 +303,11 @@ class HeroCantareSummon extends Component {
                 source: require("../../assets/images/HeroCantare/HeroIcons/Master_Pooh_Upooh.png"),
             },
             {
+                heroName: "Master Swordsman",
+                tier: "SS",
+                source: require("../../assets/images/HeroCantare/HeroIcons/Master_Swordsman.png"),
+            },
+            {
                 heroName: "Max Level Warrior",
                 tier: "SS",
                 source: require("../../assets/images/HeroCantare/HeroIcons/Max_Level_Warrior.png"),
@@ -382,6 +393,11 @@ class HeroCantareSummon extends Component {
                 source: require("../../assets/images/HeroCantare/HeroIcons/Sora.png"),
             },
             {
+                heroName: "Sora & King Uma",
+                tier: "SS",
+                source: require("../../assets/images/HeroCantare/HeroIcons/Sora_King_Uma.png"),
+            },
+            {
                 heroName: "Sujin Lee",
                 tier: "SS",
                 source: require("../../assets/images/HeroCantare/HeroIcons/Sujin_Lee.png"),
@@ -451,10 +467,38 @@ class HeroCantareSummon extends Component {
         summonList: [
             {
                 type: "Pick-Up Cube",
+                title: "Dowon & Crusade Mira Yoo",
+                hero1: "Dowon",
+                hero2: "Crusade Mira Yoo",
+                pity: 0,
+                banner: require("../../assets/images/HeroCantare/Banner/Banner_Dowon_Mira.png"),
+                cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
+            },
+            {
+                type: "Pick-Up Cube",
+                title: "Max Level Warrior & Master Swordsman",
+                hero1: "Max Level Warrior",
+                hero2: "Master Swordsman",
+                pity: 0,
+                banner: require("../../assets/images/HeroCantare/Banner/Banner_Hardcore_Master.png"),
+                cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
+            },
+            {
+                type: "Pick-Up Cube",
                 title: "Rachel & Sujin Lee",
                 hero1: "Rachel",
                 hero2: "Sujin Lee",
+                pity: 0,
                 banner: require("../../assets/images/HeroCantare/Banner/Banner_Rachel_Sujin.png"),
+                cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
+            },
+            {
+                type: "Pick-Up Cube",
+                title: "Sweet Dream Charlotte & Witch of the West Mira Yoo",
+                hero1: "Sweet Dream Charlotte",
+                hero2: "Witch of the West Mira Yoo",
+                pity: 0,
+                banner: require("../../assets/images/HeroCantare/Banner/Banner_Char_Wmira.png"),
                 cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
             },
             {
@@ -462,6 +506,7 @@ class HeroCantareSummon extends Component {
                 title: "Baylord Yama & Phantom Thief Liddie",
                 hero1: "Baylord Yama",
                 hero2: "Phantom Thief Liddie",
+                pity: 0,
                 banner: require("../../assets/images/HeroCantare/Banner/Banner_Yama_Liddie.png"),
                 cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
             },
@@ -470,6 +515,7 @@ class HeroCantareSummon extends Component {
                 title: "Ghost Bride Hwaryun & Uriel",
                 hero1: "Ghost Bride Hwaryun",
                 hero2: "Uriel",
+                pity: 0,
                 banner: require("../../assets/images/HeroCantare/Banner/Banner_Ghost_Uriel.png"),
                 cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
             },
@@ -478,6 +524,7 @@ class HeroCantareSummon extends Component {
                 title: "Idol Rockcrawler & King Dark",
                 hero1: "Idol Rockcrawler",
                 hero2: "King Dark",
+                pity: 0,
                 banner: require("../../assets/images/HeroCantare/Banner/Banner_Idol_Dark.png"),
                 cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
             },
@@ -486,7 +533,8 @@ class HeroCantareSummon extends Component {
                 title: "Orginal",
                 hero1: "",
                 hero2: "",
-                banner: require("../../assets/images/HeroCantare/Banner/Banner_Jinsung_Valk.png"),
+                pity: 0,
+                banner: require("../../assets/images/HeroCantare/Banner/Banner_Dimension.png"),
                 cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Yellow.png"),
             },
         ],
@@ -494,11 +542,20 @@ class HeroCantareSummon extends Component {
             title: "Rachel & Sujin Lee",
             hero1: "Rachel",
             hero2: "Sujin Lee",
+            pity: 0,
             selected: true,
             banner: require("../../assets/images/HeroCantare/Banner/Banner_Rachel_Sujin.png"),
             cube: require("../../assets/images/HeroCantare/UI/UI_Cube_Blue.png"),
         },
         summonedHeros: [],
+        showBanner: true,
+        heroSummonedRow1: [],
+        heroSummonedRow2: [],
+        lastSummon: "",
+        totalSummons: 0,
+        totalAHeros: 0,
+        totalSHeros: 0,
+        totalSSHeros: 0,
     };
 
     onSelectHandler = (title) => {
@@ -507,7 +564,121 @@ class HeroCantareSummon extends Component {
         this.setState({ summonListSelected: newSelect });
     };
 
-    onSummonHandler = (heroList) => {
+    onSummonHandler = (banner) => {
+        const allHeros = [...this.state.heroList];
+        const currentBanner = { ...this.state.summonListSelected };
+        let pityCount = currentBanner.pity;
+        let newTotalAHeros = this.state.totalAHeros;
+        let newTotalSHeros = this.state.totalSHeros;
+        let newTotalSSHeros = this.state.totalSSHeros;
+
+        const tierAHeros = allHeros.filter((hero) => hero.tier === "A");
+        const tierSHeros = allHeros.filter((hero) => hero.tier === "S");
+        const tierSSHeros = allHeros.filter(
+            (hero) =>
+                hero.tier === "SS" &&
+                hero.heroName !== this.state.summonListSelected.hero1 &&
+                hero.heroName !== this.state.summonListSelected.hero2
+        );
+
+        const bannerHero = allHeros.filter(
+            (hero) =>
+                hero.heroName === this.state.summonListSelected.hero1 ||
+                hero.heroName === this.state.summonListSelected.hero2
+        );
+
+        const rawSummon = Array.from({ length: 10 }, () =>
+            Math.floor(Math.random() * 100)
+        );
+
+        if (pityCount === 100) {
+            rawSummon[Math.floor(Math.random() * 10)] = 99;
+        }
+
+        if (pityCount < 100) {
+            pityCount += 10;
+        } else {
+            pityCount = 10;
+        }
+
+        const finalSummon = Object.keys(rawSummon).map((pKey) => {
+            const pull = Math.floor(Math.random() * 100);
+            var summon = rawSummon[pKey];
+            switch (true) {
+                case rawSummon[pKey] < 84:
+                    summon =
+                        tierAHeros[
+                            Math.floor(Math.random() * tierAHeros.length)
+                        ];
+                    newTotalAHeros++;
+                    break;
+                case rawSummon[pKey] < 97:
+                    summon =
+                        tierSHeros[
+                            Math.floor(Math.random() * tierSHeros.length)
+                        ];
+                    newTotalSHeros++;
+                    break;
+                case rawSummon[pKey] < 98:
+                    summon =
+                        tierSSHeros[
+                            Math.floor(Math.random() * tierSSHeros.length)
+                        ];
+                    newTotalSSHeros++;
+                    break;
+                case rawSummon[pKey] < 100:
+                    if (bannerHero[0] !== undefined) {
+                        summon =
+                            bannerHero[
+                                Math.floor(Math.random() * bannerHero.length)
+                            ];
+                    } else {
+                        summon =
+                            tierSSHeros[
+                                Math.floor(Math.random() * tierSSHeros.length)
+                            ];
+                    }
+                    newTotalSSHeros++;
+                    break;
+                default:
+                    break;
+            }
+            return summon;
+        });
+
+        currentBanner.pity = pityCount;
+        const currentSummonList = [...this.state.summonList];
+        for (let i = 0; i < currentSummonList.length; i++) {
+            if (currentSummonList[i].title === currentBanner.title) {
+                currentSummonList[i].pity = pityCount;
+            }
+        }
+
+        const summonRow1 = [...finalSummon].splice(0, 5);
+        const summonRow2 = [...finalSummon].splice(5);
+
+        this.mergeHeroBox(finalSummon);
+
+        const newTotalSummons = this.state.totalSummons + 10;
+
+        this.setState({
+            heroSummonedRow1: summonRow1,
+            heroSummonedRow2: summonRow2,
+            lastSummon: this.state.summonListSelected.title,
+            summonListSelected: currentBanner,
+            summonList: currentSummonList,
+            totalSummons: newTotalSummons,
+            totalAHeros: newTotalAHeros,
+            totalSHeros: newTotalSHeros,
+            totalSSHeros: newTotalSSHeros,
+        });
+
+        if (this.state.showBanner) {
+            this.setState({ showBanner: false });
+        }
+    };
+
+    mergeHeroBox = (heroList) => {
         const newSummons = [...heroList];
         const currentBox = [...this.state.heroBoxList];
         const currentSelected = { ...this.state.summonListSelected };
@@ -598,10 +769,39 @@ class HeroCantareSummon extends Component {
         });
     };
 
+    onReturnHandler = () => {
+        this.setState({ showBanner: true });
+    };
+
     render() {
         let background = this.state.summonListSelected.selected
             ? backgroundBanner
             : backgroundGacha;
+
+        let hcBox = this.state.showBanner ? (
+            <Grid item xs={12} align="right">
+                <BannerBox
+                    summonList={this.state.summonList}
+                    summonListSelected={this.state.summonListSelected}
+                    onSelect={this.onSelectHandler}
+                    onSummonHandler={this.onSummonHandler}
+                    onReturnHandler={this.onReturnHandler}
+                />
+            </Grid>
+        ) : (
+            <Grid item xs={12} align="center">
+                <SummonBox
+                    heroList={this.state.heroList}
+                    selected={this.state.summonListSelected}
+                    onSummonHandler={this.onSummonHandler}
+                    onReturnHandler={this.onReturnHandler}
+                    heroSummonedRow1={this.state.heroSummonedRow1}
+                    heroSummonedRow2={this.state.heroSummonedRow2}
+                    lastSummon={this.state.lastSummon}
+                    showBanner={this.state.showBanner}
+                />
+            </Grid>
+        );
 
         return (
             <Auxi>
@@ -611,22 +811,6 @@ class HeroCantareSummon extends Component {
                     alignItems="center"
                     justify="center"
                 >
-                    <Grid item xs={1} />
-                    <Grid item xs={10} align="center">
-                        <h1 className="display-3">
-                            Hero Cantare Summon Simulator
-                        </h1>
-                    </Grid>
-                    <Grid item xs={1} />
-                    <Grid item xs={1} />
-                    <Grid item xs={10}>
-                        This a Summon Simulator from Hero Cantare, where you can
-                        test your luck without needing to spend any money. For
-                        each banner except the Original, you have an increased
-                        chance to draw for those heros with a bonus of a
-                        guaranteed banner hero for every 100 summons.
-                    </Grid>
-                    <Grid item xs={1} />
                     <Grid item xs={1} />
                     <Grid
                         container
@@ -641,34 +825,63 @@ class HeroCantareSummon extends Component {
                             backgroundPosition: "center",
                         }}
                     >
-                        <Grid
-                            item
-                            xs={3}
-                            align="right"
-                            style={{
-                                height: "100%",
-                                width: "100%",
-                                overflow: "hidden",
-                            }}
-                        >
-                            <SummonList
-                                summonList={this.state.summonList}
-                                summonListSelected={
-                                    this.state.summonListSelected
-                                }
-                                onSelect={this.onSelectHandler}
-                            />
-                        </Grid>
-                        <Grid item xs={9} align="center">
-                            {" "}
-                            <SummonBox
-                                heroList={this.state.heroList}
-                                selected={this.state.summonListSelected}
-                                onSummon={this.onSummonHandler}
-                            />{" "}
+                        <Grid item xs={12} align="right">
+                            {hcBox}
                         </Grid>
                     </Grid>
                     <Grid item xs={1} />
+                    <Grid item xs={12}>
+                        <br />
+                    </Grid>
+                    <Grid
+                        container
+                        direction="row"
+                        xs={10}
+                        spacing={2}
+                        alignItems="center"
+                        justify="space-around"
+                    >
+                        <Grid
+                            container
+                            xs={12}
+                            spacing={2}
+                            alignItems="center"
+                            justify="space-around"
+                        >
+                            <Grid item>
+                                {/* 1dollar = 43.33gems | 900gems = 20.77dollar  */}
+                                <Typography>
+                                    {this.state.totalSummons} Summons
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Typography>
+                                    Money Spent: $
+                                    {(
+                                        this.state.totalSummons *
+                                        90 *
+                                        0.0231
+                                    ).toFixed(2)}
+                                    USD
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Typography>
+                                A Heros: {this.state.totalAHeros}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography>
+                                S Heros: {this.state.totalSHeros}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography>
+                                SS Heros: {this.state.totalSSHeros}
+                            </Typography>
+                        </Grid>
+                    </Grid>
                     <Grid item xs={12}>
                         <br />
                     </Grid>
