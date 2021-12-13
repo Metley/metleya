@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2ae47eeb.chunk.css",
+    "main.js": "./static/js/main.6b877550.chunk.js",
+    "main.js.map": "./static/js/main.6b877550.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.dbb3f463.js",
+    "runtime-main.js.map": "./static/js/runtime-main.dbb3f463.js.map",
+    "static/css/2.1a02f21c.chunk.css": "./static/css/2.1a02f21c.chunk.css",
+    "static/js/2.34277ae5.chunk.js": "./static/js/2.34277ae5.chunk.js",
+    "static/js/2.34277ae5.chunk.js.map": "./static/js/2.34277ae5.chunk.js.map",
+    "static/js/3.2601aacc.chunk.js": "./static/js/3.2601aacc.chunk.js",
+    "static/js/3.2601aacc.chunk.js.map": "./static/js/3.2601aacc.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "./static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.2ae47eeb.chunk.css.map": "./static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.34277ae5.chunk.js.LICENSE.txt": "./static/js/2.34277ae5.chunk.js.LICENSE.txt",
+    "static/media/Brandon_Jasper.png": "./static/media/Brandon_Jasper.af1135ef.png",
+    "static/media/Darrin_Flash_Williams.png": "./static/media/Darrin_Flash_Williams.fe7ef586.png",
+    "static/media/Father_Rhinehardt.png": "./static/media/Father_Rhinehardt.0babcaf7.png",
+    "static/media/Heather_Granville.png": "./static/media/Heather_Granville.e4a238e2.png",
+    "static/media/Jenny_LeClerc.png": "./static/media/Jenny_LeClerc.fba28968.png",
+    "static/media/Madame_Zostra.png": "./static/media/Madame_Zostra.d46116a7.png",
+    "static/media/Missy_Dubourde.png": "./static/media/Missy_Dubourde.32146684.png",
+    "static/media/Ox_Bellows.png": "./static/media/Ox_Bellows.36f9b20d.png",
+    "static/media/Peter_Akimoto.png": "./static/media/Peter_Akimoto.91067cb5.png",
+    "static/media/Professor_Longfellow.png": "./static/media/Professor_Longfellow.05fceef5.png",
+    "static/media/Vivian_Lopez.png": "./static/media/Vivian_Lopez.ab4b1668.png",
+    "static/media/Zoe_Ingstrom.png": "./static/media/Zoe_Ingstrom.a26f3166.png",
+    "static/media/profile-pic.9c045ac9.png": "./static/media/profile-pic.9c045ac9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dbb3f463.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.34277ae5.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.6b877550.chunk.js"
+  ]
+}
